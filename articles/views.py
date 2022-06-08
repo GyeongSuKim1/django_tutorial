@@ -45,3 +45,9 @@ def detail(request, pk):
         'article':article,
     }
     return render(request, 'detail.html', context)
+
+
+def delete(request, pk):
+    article = Article.objects.get(pk=pk)
+    article.delete()
+    return redirect('articles:dinner')
